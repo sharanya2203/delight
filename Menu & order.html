@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delight- Menu & Order</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('pic.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #4a1a1a;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(251, 233, 233, 0.9);
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(178, 58, 58, 0.3);
+    }
+    h1, h2 {
+      color: #b23a3a;
+    }
+    ul.menu-list {
+      list-style: none;
+      padding: 0;
+    }
+    ul.menu-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      background: #ffefb4;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    ul.menu-list li img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+      box-shadow: 0 2px 6px rgba(178, 58, 58, 0.3);
+    }
+    ul.menu-list li span {
+      flex-grow: 1;
+      font-weight: 600;
+    }
+    button.add-to-order {
+      background: #ffbc00;
+      border: none;
+      padding: 8px 16px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button.add-to-order:hover {
+      background: #f9d976;
+    }
+    /* Cart styles */
+    #cart {
+      margin-top: 30px;
+      border-top: 2px solid #b23a3a;
+      padding-top: 20px;
+    }
+    #cart h2 {
+      margin-bottom: 10px;
+    }
+    #cart ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    #cart ul li {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    #orderForm label {
+      display: block;
+      margin: 8px 0 3px 0;
+      font-weight: 600;
+    }
+    #orderForm input, #orderForm textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #b23a3a;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    #orderForm button {
+      background: #b23a3a;
+      color: #f9d976;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #orderForm button:hover {
+      background: #ffbc00;
+      color: #4a1a1a;
+    }
+    #confirmation {
+      margin-top: 15px;
+      font-weight: 700;
+      color: #4a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Delight Menu</h1>
+    <ul class="menu-list" id="menuList">
+      <li>
+        <img src='spiced lentil soup.jpeg'alt ="spiced lentil soup"/>
+        <span>Spiced Lentil Soup - $5.99</span>
+        <button class="add-to-order" data-item="Spiced Lentil Soup" data-price="5.99">Add to Order</button>
+      </li>
+      <li>
+        <img src="paneer tikka.jpeg" alt="Paneer Tikka" />
+        <span>Paneer Tikka - $7.99</span>
+        <button class="add-to-order" data-item="Paneer Tikka" data-price="7.99">Add to Order</button>
+      </li>
+      <li>
+        <img src="Chili Chicken Bites.jpeg" alt="Chili Chicken Bites" />
+        <span>Chili Chicken Bites - $8.99</span>
+        <button class="add-to-order" data-item="Chili Chicken Bites" data-price="8.99">Add to Order</button>
+      </li>
+      <li>
+        <img src="Butter Chicken.jpeg" alt ="Butter Chicken"/>
+        <span>Butter Chicken-$14.99</span>
+        <button class="add-to-order" data-item="Butter Chicken"data-price="14.99">Add to Order</button>
+      </li>
+      <li>
+        <img src="Biryani.jpeg" alt ="Biryani"/>
+        <span>Biryani-$12.99</span>
+        <button class="add-to-order" data-item="Biryani"data-price="12.99">Add to Order</button>
+      </li>
+      <li>
+        <img src="Paneer Butter Masala.jpeg" alt ="Paneer Butter Masala"/>
+        <span>Paneer Butter Masala-$13.99</span>
+        <button class="add-to-order" data-item="Paneer Butter Masala"data-price="13.99">Add to Order</button>
+      </li>
+      <li>
+        <img src="Gulab Jamun.jpeg" alt="Gulab Jamun"/>
+        <span>Gulab Jamun-$4.99</span>
+        <button class="add-to-order" data-item="Gulab Jamun"data-price="4.99">Add to Order</button> 
+      </li>
+      <li>
+        <img src="Ras Malai.jpeg"alt ="Ras Malai"/>
+        <span>Ras Malai-$5.99</span>
+        <button class="add-to-order" data-item="Ras Malai"data-price="5.99">Add to Order</button> 
+      </li>
+      <li>
+        <img src="Mango Lassi.jpeg" alt ="Mango Lassi"/>
+        <span>Mango Lassi-$3.99</span>
+        <button class="add-to-order" data-item="Mango Lassi"data-price="3.99">Add to Order</button> 
+      </li>
+      <li>
+        <img src="Masala Chai.jpeg" alt="Masala Chai"/>
+        <span>Masala Chai-$2.99</span>
+        <button class="add-to-order" data-item="Masala Chai"data-price="2.99">Add to Order</button> 
+      </li>
+      <li>
+        <img src="Fresh Lime Soda.jpeg" alt ="Fresh Lime Soda"/>
+        <span>Fresh Lime Soda-$3.50</span>
+        <button class="add-to-order" data-item="Fresh Lime Soda"data-price="3.50">Add to Order</button> 
+      </li>
+    </ul>
+
+    <div id="cart">
+      <h2>Your Order</h2>
+      <ul id="cartItems"></ul>
+      <div><strong>Total: $<span id="totalPrice">0.00</span></strong></div>
+
+      <form id="orderForm">
+        <h3>Place Your Order</h3>
+        <label for="name">Full Name*</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email*</label>
+        <input type="email" id="email" required />
+
+        <label for="phone">Phone Number*</label>
+        <input type="tel" id="phone" required />
+
+        <button type="submit">Submit Order</button>
+      </form>
+
+      <p id="confirmation"></p>
+    </div>
+  </div>
+
+  <script>
+    const cart = [];
+    const cartItemsEl = document.getElementById('cartItems');
+    const totalPriceEl = document.getElementById('totalPrice');
+    const orderForm = document.getElementById('orderForm');
+    const confirmationEl = document.getElementById('confirmation');
+
+    // Add to Order button click handler
+    document.querySelectorAll('.add-to-order').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.dataset.item;
+        const price = parseFloat(btn.dataset.price);
+        cart.push({ item, price });
+        renderCart();
+      });
+    });
+
+    // Render the cart items and total price
+    function renderCart() {
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+      cart.forEach((entry, index) => {
+        total += entry.price;
+        const li = document.createElement('li');
+        li.textContent = `${entry.item} - $${entry.price.toFixed(2)}`;
+        cartItemsEl.appendChild(li);
+      });
+      totalPriceEl.textContent = total.toFixed(2);
+    }
+
+    // Order form submission handler
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (cart.length === 0) {
+        alert('Please add at least one item to your order.');
+        return;
+      }
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      // For demo, just show confirmation
+      confirmationEl.style.color = 'green';
+      confirmationEl.textContent = `Thank you, ${name}! Your order totaling $${totalPriceEl.textContent} has been received. We will contact you shortly at ${email} or ${phone}.`;
+
+      // Clear cart and form
+      cart.length = 0;
+      renderCart();
+      orderForm.reset();
+    });
+  </script>
+</body>
+</html>

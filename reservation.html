@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delight- Reservation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">Delight</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="Menu & order.html">Menu-order</a>
+        <a href="reservation.html" class="active">Reservation</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container reservation-section">
+    <h2>Book a Table</h2>
+    <form id="reservationForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Time</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="guests">Number of Guests</label>
+      <input type="number" id="guests" name="guests" min="1" max="20" required />
+
+      <button type="submit" class="btn">Reserve</button>
+    </form>
+    <p id="confirmation" class="confirmation-message"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Delight. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('reservationForm');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      confirmation.textContent = `Thank you, ${form.name.value}! Your table for ${form.guests.value} is reserved on ${form.date.value} at ${form.time.value}.`;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
